@@ -1,0 +1,60 @@
+//=================01====================
+N: number -> depth of outter array, N > 0
+size: number -> length of all arrays, size > 0
+All inputs will be valid.
+On the last (deepest) level we should put a string wich will describe the depth of our array. Example: 'level 2'
+Example:
+for createNDimensionalArray(2,3) output should be:
+[
+  ['level 2', 'level 2', 'level 2'],
+  ['level 2', 'level 2', 'level 2'],
+  ['level 2', 'level 2', 'level 2'],
+]
+//=================02====================
+Two actions are allowed:
+forward: Move forward 1 unit.
+double: If you at x point, then you can move to x*2 point.
+Now, here comes your new task. Your starting point is x, the target point is y.
+You need to jump to the target point with minimal steps. Please tell me, what's the minimal steps?
+1 <= x <= 10, x < y <= 100000
+Example
+For x = 1, y = 8, the output should be 3.
+//=================03====================
+Every book has n pages with page numbers 1 to n. The summary is made by adding up the number of digits of all page numbers.
+Task: Given the summary, find the number of pages n the book has.
+Example
+If the input is summary=25, then the output must be n=17: 
+The numbers 1 to 17 have 25 digits in total: 1234567891011121314151617.
+//=================04====================
+You need to return a string that looks like a diamond shape when printed on the screen, using asterisk (*) characters. Trailing spaces should be removed, and every line must be terminated with a newline character (\n).
+Return null/nil/None/... if the input is an even number or negative, as it is not possible to print a diamond of even or negative size.
+Examples
+A size 3 diamond:
+ *
+***
+ *
+A size 5 diamond:
+  *
+ ***
+*****
+ ***
+  *
+//=================05====================
+You need to return a string that looks like a diamond shape when printed on the screen, using asterisk (*) characters. Trailing spaces should be removed, and every line must be terminated with a newline character (\n).
+Return null/nil/None/... if the input is an even number or negative, as it is not possible to print a diamond of even or negative size.
+Examples
+A size 5 diamond:
+       *
+      ***
+     *****
+//=================06====================
+Given two arrays of strings a1 and a2 return a sorted array r in lexicographical order of the strings of a1 which are substrings of strings of a2.
+Example 1:
+a1 = ["arp", "live", "strong"]
+a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+returns ["arp", "live", "strong"]
+
+Example 2:
+a1 = ["tarp", "mice", "bull"]
+a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+returns []
