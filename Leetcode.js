@@ -1,3 +1,5 @@
+//======================================Easy========================================
+//14. Longest Common Prefix
 var longestCommonPrefix = function (strs) {
   if (!strs.length) return;
   for (let i = 0; i < strs[0].length; i++) {
@@ -11,3 +13,4 @@ var longestCommonPrefix = function (strs) {
 };
 console.log(longestCommonPrefix(["flower", "flow", "flight"]));
 // console.log(longestCommonPrefix(["dog", "racecar", "car"]));
+//

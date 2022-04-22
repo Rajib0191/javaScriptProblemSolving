@@ -88,3 +88,110 @@ console.log(
   )
 );
 //====================Ans-07=================
+function to_nato(words) {
+  var translate = {
+    a: "Alfa ",
+    b: "Bravo ",
+    c: "Charlie ",
+    d: "Delta ",
+    e: "Echo ",
+    f: "Foxtrot ",
+    g: "Golf ",
+    h: "Hotel ",
+    i: "India ",
+    j: "Juliett ",
+    k: "Kilo ",
+    l: "Lima ",
+    m: "Mike ",
+    n: "November ",
+    o: "Oscar ",
+    p: "Papa ",
+    q: "Quebec ",
+    r: "Romeo ",
+    s: "Sierra ",
+    t: "Tango ",
+    u: "Uniform ",
+    v: "Victor ",
+    w: "Whiskey ",
+    x: "Xray ",
+    y: "Yankee ",
+    z: "Zulu ",
+    ",": ", ",
+    "?": "? ",
+    ".": ". ",
+    "!": "! ",
+  };
+
+  let str = "";
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].toLowerCase() === " ") {
+      str += "";
+    } else {
+      str += translate[words[i].toLowerCase()];
+    }
+  }
+  return str.trim();
+}
+console.log(to_nato("go, for it!"));
+
+//====================Ans-08=================
+function isOddHeavy(n) {
+  if (n.every((x) => x === 0 || x % 2 === 0)) {
+    return false;
+  }
+  let odd = [];
+  let eve = [];
+  for (let i = 0; i < n.length; i++) {
+    if (n[i] % 2 === 0) {
+      eve.push(n[i]);
+    } else {
+      odd.push(n[i]);
+    }
+  }
+  for (let j = 0; j < odd.length; j++) {
+    for (let k = 0; k < eve.length; k++) {
+      if (eve[k] < odd[j]) {
+        continue;
+      } else {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+console.log(oddHeavy([11, 4, 9, 2, 8]));
+function oddHeavy(n) {
+  if (n.every((x) => x === 0 || x % 2 === 0)) {
+    return false;
+  }
+  let odd = [];
+  let eve = [];
+  for (let i = 0; i < n.length; i++) {
+    if (n[i] % 2 === 0) {
+      eve.push(n[i]);
+    } else {
+      odd.push(n[i]);
+    }
+  }
+  let oddmin = Math.min(...odd);
+  let eveMax = Math.max(...eve);
+  console.log(oddmin, eveMax);
+  if (oddmin > eveMax) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(isOddHeavy([11, 4, 9, 2, 8]));
+
+//====================Ans-09=================
+function solution(number) {
+  let sum = 0;
+  for (let i = 1; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += i;
+    }
+  }
+  return sum;
+}
+console.log(solution(100));
