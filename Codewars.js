@@ -195,3 +195,50 @@ function solution(number) {
   return sum;
 }
 console.log(solution(100));
+//====================Ans-10=================
+function encryptor(key, str) {
+  var resStr = "";
+
+  for (let element of str) {
+    let code = element.charCodeAt();
+
+    if (key < 0) {
+      key = (26 + key) % 26;
+    }
+
+    if (code >= 97 && code <= 122) {
+      code = ((code - 97 + key) % 26) + 97;
+      resStr += String.fromCharCode(code);
+    } else if (code >= 65 && code <= 90) {
+      code = ((code - 65 + key) % 26) + 65;
+      resStr += String.fromCharCode(code);
+    } else {
+      resStr += String.fromCharCode(code);
+    }
+  }
+  return resStr;
+}
+console.log(encryptor(-45, "$zg.#Yxo]%!{G[c`"));
+console.log(encryptor(-84, 'RNg?[5ew"B:SZ<(oA6WjB4oNB[,dHSw>-je&n'));
+//====================Ans-11=================
+function nthFibo(n) {
+  if (n === 1) return 0;
+  if (n === 2) return 1;
+  return nthFibo(n - 2) + nthFibo(n - 1);
+}
+console.log(nthFibo(5));
+// ====Another Way
+function nthFibo(n) {
+  let first = 0;
+  let second = 1;
+  let count = 1;
+  while (count < n) {
+    let temp = first + second;
+    first = second;
+    second = temp;
+    count++;
+  }
+  return first;
+}
+console.log(nthFibo(5));
+//====================Ans-12=================

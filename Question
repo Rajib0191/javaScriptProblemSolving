@@ -80,3 +80,21 @@ because:- one of it's even element 10 from [4,2,10] is greater than two of its o
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in. Additionally, if the number is negative, return 0 (for languages that do have them).
 Note: If the number is a multiple of both 3 and 5, only count it once.
+
+<!-- =============10====================== -->
+
+Your task is to create a function encryptor that takes 2 arguments - key and message - and returns the encrypted message.
+Make sure to only shift letters, and be sure to keep the cases of the letters the same. All punctuation, numbers, spaces, and so on should remain the same.
+Also be aware of keys greater than 26 and less than -26. There's only 26 letters in the alphabet!
+Examples
+A message 'Caesar Cipher' and a key of 1 returns 'Dbftbs Djqifs'.
+A message 'Caesar Cipher' and a key of -1 returns 'Bzdrzq Bhogdq'.
+
+<!-- =============11====================== -->
+
+N-th Fibonacci
+Examples
+nth(5) return 3
+nth(3) return 1
+
+<!-- =============12====================== -->
