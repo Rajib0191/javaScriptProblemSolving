@@ -6,16 +6,9 @@ class Queue {
     this.items.push(item);
   }
   dequeue() {
-    if (this.items === 0) {
-      return "No Item For Delete!";
-    }
     return this.items.shift();
   }
   peek() {
-    if (this.items === 0) {
-      //   return "Queue is empty!";
-      throw new Error("Queue is empty!");
-    }
     return this.items[0];
   }
   length() {
