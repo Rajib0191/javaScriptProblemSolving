@@ -1,3 +1,4 @@
+// Queue
 class Queue {
   constructor() {
     this.items = [];
@@ -19,6 +20,8 @@ const Q = new Queue();
 Q.enqueue(10);
 Q.enqueue(20);
 Q.enqueue(30);
+Q.enqueue(40);
+Q.enqueue(50);
 console.log("Deleted Item:", Q.dequeue());
 console.log("Top Value", Q.peek());
 console.log("Length", Q.length());
