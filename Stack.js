@@ -15,7 +15,7 @@ class Stack extends Array {
     return this[this.length - 1];
   }
 }
-const s = new Stack(1, 2, 3);
+const s = new Stack(1, 2, 3, 4, 5);
 s.push(100);
 console.log(s.peek());
 console.log(s);
