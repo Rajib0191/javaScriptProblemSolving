@@ -54,7 +54,6 @@ console.log(isValid(string1));
 console.log(isValid(string2));
 
 //21. Merge Two Sorted Lists
-
 class Node {
   constructor(data, next) {
     this.data = data;
@@ -103,5 +102,60 @@ var n6 = new Node(9, null);
 var n5 = new Node(6, n6);
 var n4 = new Node(5, n5);
 var L2 = n4;
-
 console.log(merge(L1, L2));
+
+// 26. Remove Duplicates from Sorted Array
+var removeDuplicates = function (nums) {
+  let len = nums.length;
+  let last = NaN;
+  let count = 0;
+  for (let i = 0; i < len; i++) {
+    if (nums[i] !== last) {
+      nums[count] = nums[i];
+      last = nums[i];
+      console.log(last);
+      count++;
+    }
+  }
+  return count;
+};
+console.log(removeDuplicates([1, 1, 2]));
+
+// 27. Remove Element
+var removeElement = function (nums, val) {
+  let count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== val) {
+      nums[count] = nums[i];
+      count++;
+    }
+  }
+  return count;
+};
+console.log(removeElement([2, 3, 3, 2], 3));
+
+// 28. Implement strStr()
+var strStr = function (haystack, needle) {
+  if (!needle.length) return 0;
+  for (let i = 0; i < haystack.length; i++) {
+    for (let j = 0; j < needle.length; j++) {
+      if (haystack[i + j] !== needle[j]) break;
+      if (j === needle.length - 1) return i;
+    }
+  }
+  return -1;
+};
+console.log(strStr("hello", "ll"));
+console.log(strStr("aaaaa", "bba"));
+
+//35. Search Insert Position
+var searchInsert = function (nums, target) {
+  console.log(nums, target);
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] >= target) {
+      return i;
+    }
+  }
+  return nums.length;
+};
+console.log(searchInsert([1, 3, 5, 6], 5));
