@@ -159,3 +159,165 @@ var searchInsert = function (nums, target) {
   return nums.length;
 };
 console.log(searchInsert([1, 3, 5, 6], 5));
+//======Another Way======Add the target value that position
+let find = function (nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] >= target) {
+      let temp = nums[i];
+      nums[i] = target;
+      nums.push(temp);
+      console.log(nums);
+      return i;
+    }
+  }
+};
+console.log(find([1, 3, 5, 6, 7, 10], 8));
+
+// 53. Maximum Subarray
+var maxSubArray = function (nums) {
+  let max = nums[0];
+  for (let i = 0; i < nums.length; i++) {
+    let sum = 0;
+    for (let j = i; j < nums.length; j++) {
+      sum += nums[j];
+      if (sum > max) {
+        max = sum;
+      }
+    }
+  }
+  return max;
+};
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+// =====Another Way=======
+var maxSubArray = function (nums) {
+  let max = nums[0]; //-2,1,1,4,4,5,6,6,6
+  let currentSum = nums[0]; //-2,1,-2,4,3,5,6,1,5
+  for (let i = 1; i < nums.length; i++) {
+    currentSum = Math.max(currentSum + nums[i], nums[i]);
+    max = Math.max(max, currentSum);
+  }
+  return max;
+};
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+// 844. Backspace String Compare
+var backspaceCompare = function (s, t) {
+  let arr = [];
+  let arr1 = [];
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "#") {
+      arr.pop();
+    } else {
+      arr.push(s[i]);
+    }
+  }
+  for (let j = 0; j < t.length; j++) {
+    if (t[j] === "#") {
+      arr1.pop();
+    } else {
+      arr1.push(t[j]);
+    }
+  }
+  if (arr.toString() === arr1.toString()) {
+    return true;
+  } else {
+    return false;
+  }
+};
+console.log(backspaceCompare("ab#c", "ad#c")); //true
+console.log(backspaceCompare("a#c", "b")); //false
+
+// 905. Sort Array By Parity
+var sortArrayByParity = function (nums) {
+  let oddArr = [];
+  let evenArr = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] % 2 === 0) {
+      evenArr.push(nums[i]);
+    } else {
+      oddArr.push(nums[i]);
+    }
+  }
+  return [...evenArr, ...oddArr];
+};
+console.log(sortArrayByParity([3, 1, 2, 4]));
+
+// 581. Shortest Unsorted Continuous Subarray
+var findUnsortedSubarray = function (nums) {
+  let max = nums[0];
+  let min = nums[nums.length - 1];
+  let start = -1;
+  let end = -2;
+  for (let i = 1; i < nums.length; i++) {
+    let j = nums.length - i - 1;
+    max = Math.max(max, nums[i]);
+    if (max > nums[i]) {
+      end = i;
+    }
+    min = Math.min(min, nums[j]);
+    if (min < nums[j]) {
+      start = j;
+    }
+  }
+  return end - start + 1;
+};
+console.log(findUnsortedSubarray([2, 6, 4, 8, 10, 9, 15]));
+console.log(findUnsortedSubarray([2, 4, 6]));
+
+// 58. Length of Last Word -> Made by Self
+var lengthOfLastWord = function (s) {
+  let count = 0;
+  let space = 0;
+  for (let i = s.length - 1; i >= 0; i--) {
+    if (s[i] === " ") {
+      if (count === 0) {
+        space += 1;
+      } else {
+        return count;
+      }
+    } else {
+      count += 1;
+    }
+  }
+  return count;
+};
+console.log(lengthOfLastWord(" fly moon "));
+
+// 66. Plus One
+var plusOne = function (digits) {
+  for (let i = digits.length - 1; i >= 0; i--) {
+    if (digits[i] < 9) {
+      digits[i] = digits[i] + 1;
+      return digits;
+    } else {
+      digits[i] = 0;
+    }
+  }
+  digits.unshift(1);
+  return digits;
+};
+console.log(plusOne([6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3]));
+console.log(plusOne([9]));
+
+// 1209. Remove All Adjacent Duplicates in String II
+var removeDuplicates = function (s, k) {
+  let stack = [];
+  for (let i = 0; i < s.length; i++) {
+    let current = s[i];
+    let peek = stack[stack.length - 1];
+    if (stack.length === 0 || peek[0] !== current) {
+      stack.push([current, 1]);
+    } else {
+      peek[1]++;
+      if (peek[1] === k) {
+        stack.pop();
+      }
+    }
+  }
+  let str = "";
+  for (let i = 0; i < stack.length; i++) {
+    str += stack[i][0].repeat(stack[i][1]);
+  }
+  return str;
+};
+console.log(removeDuplicates("abcd", 2));
