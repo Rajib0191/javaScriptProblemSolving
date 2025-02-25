@@ -1,16 +1,34 @@
-// 26. Remove Duplicates from Sorted Array
+// =====Approach-01=====
 var removeDuplicates = function (nums) {
-  let len = nums.length;
-  let last = NaN;
-  let count = 0;
-  for (let i = 0; i < len; i++) {
-    if (nums[i] !== last) {
-      nums[count] = nums[i];
-      last = nums[i];
-      console.log(last);
-      count++;
+  if (nums.length === 0) return 0;
+
+  let a = 0;
+  let b = 1;
+
+  while (b < nums.length) {
+    if (nums[a] === nums[b]) {
+      b++;
+    } else {
+      a++;
+      nums[a] = nums[b];
     }
   }
-  return count;
+
+  return a + 1;
+};
+
+// =====Approach-02=====
+var removeDuplicates = function (nums) {
+  if (nums.length === 0) return 0;
+
+  let k = 1;
+
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] !== nums[i - 1]) {
+      nums[k] = nums[i];
+      k++;
+    }
+  }
+  return k;
 };
 console.log(removeDuplicates([1, 1, 2]));
