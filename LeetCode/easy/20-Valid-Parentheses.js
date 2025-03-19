@@ -1,6 +1,4 @@
-//20. Valid Parentheses
-const string1 = "[[{([[({})]])}]]";
-const string2 = "[[{([[({})]])}]";
+// =====Approach-01=====
 var isValid = function (s) {
   let arr = s.split("");
   let newArr = [];
@@ -35,5 +33,26 @@ var isValid = function (s) {
   }
   return true;
 };
-console.log(isValid(string1));
-console.log(isValid(string2));
+
+// =====Approach-02=====
+var isValid = function (s) {
+  let arr = [];
+  let bracket = {
+    "(": ")",
+    "{": "}",
+    "[": "]",
+  };
+
+  for (let i = 0; i < s.length; i++) {
+    if (bracket[s[i]]) {
+      arr.push(s[i]);
+    } else {
+      if (s[i] != bracket[arr.pop()]) {
+        return false;
+      }
+    }
+  }
+  return arr.length ? false : true;
+};
+
+console.log(isValid("[[{([[({})]])}]]"));
