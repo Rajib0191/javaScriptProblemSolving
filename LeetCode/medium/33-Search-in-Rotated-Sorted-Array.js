@@ -1,12 +1,13 @@
 var search = function (nums, target) {
   let left = 0;
-  let right = nums.length - 1;
-  console.log("Left:", left);
-  console.log("Right:", right);
+  let right = nums?.length - 1;
 
   while (left <= right) {
-    let mid = Math.floor(left + right) / 2;
+    console.log("LEFT:", left, "RIGHT:", right);
+
+    let mid = Math.floor((left + right) / 2);
     console.log("MID:", mid);
+
     if (nums[mid] === target) {
       return mid;
     } else if (nums[mid] >= nums[left]) {
@@ -26,6 +27,6 @@ var search = function (nums, target) {
   return -1;
 };
 
-const nums = [4, 5, 6, 7, 0, 1, 2];
+const nums = [1, 3];
 let target = 1;
 console.log(search(nums, target));
