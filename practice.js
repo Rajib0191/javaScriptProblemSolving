@@ -1,19 +1,23 @@
-var myPow = function (x, n) {
-  if (n === 0) {
-    return 1;
-  }
+function generateValidParenthesis(n) {
+  const res = [];
+  function backTrack(current, open, close) {
+    console.log("current", current, "open", open, "close", close);
+    if (current.length === n * 2) {
+      res.push(current);
+      console.log("res", res);
+      return;
+    }
 
-  if (n < 0) {
-    x = 1 / x;
-    n = -n;
-  }
+    if (open < n) {
+      backTrack(current + "(", open + 1, close);
+    }
 
-  if (n % 2 === 0) {
-    let half = myPow(x, n / 2);
-    return half * half;
-  } else {
-    return x * myPow(x, n - 1);
+    if (close < open) {
+      backTrack(current + ")", open, close + 1);
+    }
   }
-};
+  backTrack([], 0, 0);
+  return res;
+}
 
-console.log(myPow(2, 31));
+console.log(generateValidParenthesis(3));
