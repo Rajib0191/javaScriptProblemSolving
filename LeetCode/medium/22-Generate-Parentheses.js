@@ -18,7 +18,6 @@ function generateParenthesis(n) {
   }
   return result;
 }
-// Time Complexity -> O(4^n/sqrt(n)).
 console.log(generateParenthesis(3));
 
 // =====Another Approach=====
@@ -43,5 +42,4 @@ function generateValidParenthesis(n) {
   backTrack("", 0, 0);
   return res;
 }
-
 console.log(generateValidParenthesis(3));
